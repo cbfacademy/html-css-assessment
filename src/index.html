@@ -1,0 +1,10 @@
+<html>
+  <head>
+   <title>Black Codher starter file!</title>
+  </head>
+  <body>
+     <!-- Type your code between <body> and <script>-->
+    
+     <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
