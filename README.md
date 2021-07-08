@@ -21,9 +21,10 @@ You are free to add more content and style it anyway you want. Below is some [ex
         1. `<title>`
         1. `<link>` including a favicon
     1. `<h1>` with your name
-    1. `<section>` with a brief description of yourself
-    1. `<img>` containing an image of yourself or your avatar
+    1. `<section>` with a brief description of yourself with the class name `about-me`
+    1. `<img>` containing an image of yourself or your avatar with the class name `profile-img`
     1. `<ul>` containing all of your current and upcoming projects
+    1. `<footer>` containing a list of links to all your public social media accounts (including GitHub). If you don't want to share your own social media accounts feel free to use the Black Codher accounts.
 1. External stylesheet
     1. Must be in a folder called `styles`
     1. Import fonts
@@ -44,7 +45,9 @@ You must push all the code to your portfolio repo.
 
 ## Examples of portfolios
 
-1. [Charlene Grant](https://charlene-grant.netlify.app/)
+1. [Charlene Grant](https://charlene-grant.netlify.app)
+1. [Elle Halal](http://www.ellehallal.dev/)
+1. [Tanya Powell](https://www.tanyapowell.dev)
 1. [Brittany Chiang](https://brittanychiang.com)
 1. [Max Böck](https://mxb.dev)
 1. [Monica Powell](https://aboutmonica.com)
