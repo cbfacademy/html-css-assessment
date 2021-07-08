@@ -21,8 +21,8 @@ You are free to add more content and style it anyway you want. Below is some [ex
         1. `<title>`
         1. `<link>` including a favicon
     1. `<h1>` with your name
-    1. `<section>` with a brief description of yourself with the classname `about-me`
-    1. `<img>` containing an image of yourself or your avatar with the classname `profile-img`
+    1. `<section>` with a brief description of yourself with the class name `about-me`
+    1. `<img>` containing an image of yourself or your avatar with the class name `profile-img`
     1. `<ul>` containing all of your current and upcoming projects
     1. `<footer>` containing a list of links to all your public social media accounts (including GitHub). If you don't want to share your own social media accounts feel free to use the Black Codher accounts.
 1. External stylesheet
