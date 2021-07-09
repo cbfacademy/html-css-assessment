@@ -1,58 +1,74 @@
-const { parseHTML, parseJS, readFile } = require('./setup.js');
+const { parseHTML, parseCSS, readFile } = require('./setup.js');
 const doc = parseHTML(readFile('../src/index.html'));
-const script = parseJS(readFile('../src/index.js'));
+const css = parseCSS(readFile('../src/styles/main.css'));
 
 // HTML tests
-test('index.html exists', () => {
-  expect(doc).toBeTruthy();
+describe('web page', () => {
+  test('index.html exists', () => {
+    expect(doc).toBeTruthy();
+  });
+
+  test('contains <!DOCTYPE html> declaration', () => {
+    let match = doc.childNodes[0].rawText.match(/^<!DOCTYPE html>/);
+
+    expect(match).toBeTruthy();
+  });
+
+  test('<html /> element contains "lang" attribute', () => {
+    expect(doc.querySelectorAll('html').length).toBe(1);
+    expect(doc.querySelector('html').getAttribute('lang')).toBeTruthy();
+  });
+
+  test('contains exactly one <title /> element', () => {
+    expect(doc.querySelectorAll('head title').length).toBe(1);
+  });
+
+  test('contains exactly one <meta charset="" /> element', () => {
+    expect(doc.querySelectorAll('head meta[charset]').length).toBe(1);
+  });
+
+  test('contains at least one <link /> element pointing to a stylesheet in the "styles" directory', () => {
+    expect(doc.querySelectorAll('head link[rel=stylesheet]').length).toBeGreaterThan(0);
+    expect(
+      doc.querySelectorAll('head link[rel=stylesheet]')
+      .filter(link => link.getAttribute('href').indexOf('styles/') >= 0).length
+    ).toBeGreaterThan(0);
+  });
+
+  test('contains exactly one <link /> element pointing to a favicon', () => {
+    expect(doc.querySelectorAll('head link[rel=icon]').length).toBe(1);
+  });
+
+  test('contains exactly one <h1 /> element', () => {
+    expect(doc.querySelectorAll('body h1').length).toBe(1);
+  });
+
+  test('contains exactly one <section /> element with the class name "about-me"', () => {
+    expect(doc.querySelectorAll('body section.about-me').length).toBe(1);
+  });
+
+  test('contains exactly one <img /> element with the class name "profile-img"', () => {
+    expect(doc.querySelectorAll('body section.about-me').length).toBe(1);
+  });
+
+  test('contains exactly one <ul /> element with the class name "projects"', () => {
+    expect(doc.querySelectorAll('body ul.projects').length).toBe(1);
+  });
+
+  test('contains exactly at least one <ul /> element with the class name "social-media", inside a <footer /> element', () => {
+    expect(doc.querySelectorAll('body footer ul.social-media').length).toBeGreaterThan(0);
+  });
 });
 
-test('starts with <!DOCTYPE html /> declaration', () => {
-  let match = doc.childNodes[0].rawText.match(/^<!DOCTYPE html>/);
+// CSS tests
+describe('stylesheet', () => {
+  test('styles/main.css exists', () => {
+      expect(css).toBeTruthy();
+  });
 
-  expect(match).toBeTruthy();
-});
-
-test('<html /> element contains "lang" attribute', () => {
-  expect(doc.querySelectorAll('html').length).toBe(1);
-  expect(doc.querySelector('html').getAttribute('lang')).toBeTruthy();
-});
-
-test('contains exactly one <title /> element', () => {
-  expect(doc.querySelectorAll('head title').length).toBe(1);
-});
-
-test('contains exactly one <meta charset="" /> element', () => {
-  expect(doc.querySelectorAll('head meta[charset]').length).toBe(1);
-});
-
-test('contains at least one <link rel="stylesheet" /> element', () => {
-  expect(doc.querySelectorAll('head link[rel=stylesheet]').length).toBeGreaterThan(0);
-});
-
-test('contains exactly one <h1 /> element', () => {
-  expect(doc.querySelectorAll('body h1').length).toBe(1);
-});
-
-// JS tests
-test('src/index.js exists', () => {
-    expect(script).toBeTruthy();
-});
-
-test('contains "getGrade" function', () => {
-    expect(typeof script.body.find(node => node.type === 'FunctionDeclaration' && node.id.name === 'getGrade')).toBe('object');
-});
-
-test('"getGrade" function contains "switch" statement', () => {
-    let fn = script.body.find(node => node.type === 'FunctionDeclaration' && node.id.name === 'getGrade');
-    let switchStatement = fn.body.body.find(node => node.type === 'SwitchStatement' && Array.isArray(node.cases));
-
-    expect(typeof switchStatement).toBe('object');
-});
-
-test('"getGrade" "switch" statement contains at least 7 case statements', () => {
-    let fn = script.body.find(node => node.type === 'FunctionDeclaration' && node.id.name === 'getGrade');
-    let switchStatement = fn.body.body.find(node => node.type === 'SwitchStatement' && Array.isArray(node.cases));
-
-    expect(Array.isArray(switchStatement.cases) && switchStatement.cases.length >= 7).toBeTruthy();
+  test('imports at least one font', () => {
+      expect(
+        css.stylesheet.rules.filter(rule => rule.type == 'font-face').length
+      ).toBeGreaterThan(0);
+  });
 });
