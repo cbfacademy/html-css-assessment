@@ -9,6 +9,7 @@
     "babel-jest": "*",
     "css-parse": "*",
     "jest": "*",
+    "jest-compact-reporter": "*",
     "node-html-parser": "*"
   },
   "scripts": {
