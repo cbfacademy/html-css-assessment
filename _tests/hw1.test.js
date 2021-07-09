@@ -27,12 +27,12 @@ describe('web page', () => {
     expect(doc.querySelectorAll('head meta[charset]').length).toBe(1);
   });
 
-  test('contains at least one <link /> element pointing to a stylesheet in the "styles" directory', () => {
+  test('contains exactly one <link /> element pointing to the "styles/main.css" stylesheet', () => {
     expect(doc.querySelectorAll('head link[rel=stylesheet]').length).toBeGreaterThan(0);
     expect(
       doc.querySelectorAll('head link[rel=stylesheet]')
-      .filter(link => link.getAttribute('href').indexOf('styles/') >= 0).length
-    ).toBeGreaterThan(0);
+      .filter(link => link.getAttribute('href').indexOf('styles/main.css') >= 0).length
+    ).toBe(1);
   });
 
   test('contains exactly one <link /> element pointing to a favicon', () => {
@@ -70,7 +70,11 @@ describe('stylesheet', () => {
 
   test('imports at least one font', () => {
       expect(
-        css.stylesheet.rules.filter(rule => rule.type == 'font-face').length
+        css.stylesheet.rules.filter(
+          rule => rule.type == 'font-face' &&
+          typeof rule.declarations.find(declaration => declaration.property === 'font-family') !== 'undefined' &&
+          typeof rule.declarations.find(declaration => declaration.property === 'src' && declaration.value.indexOf('url') >= 0) !== 'undefined'
+        ).length
       ).toBeGreaterThan(0);
   });
 });
