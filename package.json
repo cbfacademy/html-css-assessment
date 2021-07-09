@@ -5,15 +5,15 @@
   "devDependencies": {
     "@babel/core": "*",
     "@babel/preset-env": "*",
+    "acorn": "*",
     "babel-jest": "*",
-    "jest": "*"
+    "css-parse": "*",
+    "jest": "*",
+    "node-html-parser": "*"
   },
   "scripts": {
     "test": "jest"
   },
   "dependencies": {
-    "acorn": "^8.2.2",
-    "css-parse": "^2.0.0",
-    "node-html-parser": "^3.2.0"
   }
 }
