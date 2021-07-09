@@ -51,12 +51,14 @@ describe('web page', () => {
     expect(doc.querySelectorAll('body section.about-me').length).toBe(1);
   });
 
-  test('contains exactly one <ul /> element with the class name "projects"', () => {
+  test('contains exactly one <ul /> element with the class name "projects" and multiple projects listed', () => {
     expect(doc.querySelectorAll('body ul.projects').length).toBe(1);
+    expect(doc.querySelectorAll('body ul.projects li').length).toBeGreaterThan(1);
   });
 
-  test('contains exactly at least one <ul /> element with the class name "social-media", inside a <footer /> element', () => {
+  test('contains exactly at least one <ul /> element with the class name "social-media" and multiple social accounts listed, inside a <footer /> element', () => {
     expect(doc.querySelectorAll('body footer ul.social-media').length).toBeGreaterThan(0);
+    expect(doc.querySelectorAll('body footer ul.social-media li').length).toBeGreaterThan(1);
   });
 });
 
