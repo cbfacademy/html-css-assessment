@@ -3,8 +3,8 @@ const doc = parseHTML(readFile('../src/index.html'));
 const css = parseCSS(readFile('../src/styles/main.css'));
 
 // HTML tests
-describe('web page', () => {
-  test('index.html exists', () => {
+describe('/index.html', () => {
+  test('file found', () => {
     expect(doc).toBeTruthy();
   });
 
@@ -56,15 +56,15 @@ describe('web page', () => {
     expect(doc.querySelectorAll('body ul.projects li').length).toBeGreaterThan(1);
   });
 
-  test('contains exactly at least one <ul /> element with the class name "social-media" and multiple social accounts listed, inside a <footer /> element', () => {
+  test('contains at least one <ul /> element with the class name "social-media" and multiple social accounts listed, inside a <footer /> element', () => {
     expect(doc.querySelectorAll('body footer ul.social-media').length).toBeGreaterThan(0);
     expect(doc.querySelectorAll('body footer ul.social-media li').length).toBeGreaterThan(1);
   });
 });
 
 // CSS tests
-describe('stylesheet', () => {
-  test('styles/main.css exists', () => {
+describe('styles/main.css', () => {
+  test('file found', () => {
       expect(css).toBeTruthy();
   });
 
