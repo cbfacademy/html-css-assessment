@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Test acceptance criteria",
+      "setup": "",
+      "run": "yarn test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
