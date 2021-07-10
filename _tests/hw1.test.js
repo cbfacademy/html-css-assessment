@@ -1,6 +1,8 @@
 const { parseHTML, parseCSS, readFile } = require('./setup.js');
 const doc = parseHTML(readFile('../src/index.html'));
 const css = parseCSS(readFile('../src/styles/main.css'));
+const readMe = readFile('../README.md');
+const badgeRegex = /\[\!\[Netlify Status]\(https:\/\/api\.netlify\.com\/api\/v1\/badges\/[-a-f0-9]+\/deploy-status\)]\([^)]+\)/g;
 
 // HTML tests
 describe('/index.html', () => {
@@ -76,5 +78,11 @@ describe('styles/main.css', () => {
           typeof rule.declarations.find(declaration => declaration.property === 'src' && declaration.value.indexOf('url') >= 0) !== 'undefined'
         ).length
       ).toBeGreaterThan(0);
+  });
+});
+
+describe('README.md', () => {
+  test('status badge found', () => {
+    expect(readMe.match(badgeRegex).length).toBeGreaterThan(0);
   });
 });

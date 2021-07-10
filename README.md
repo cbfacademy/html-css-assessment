@@ -1,3 +1,5 @@
+[TODO: Replace with your Netflify status badge]
+
 # HTML and CSS Assessment
 
 For your unit 2 assessment you are required to create a website portfolio in HTML and CSS. As you progress throughout the course you are expected to continue adding and refining your portfolio, however by the due date of this assessment you must have what is stated in the [criteria](#assessment-criteria) pushed to your portfolio GitHub ready to be marked.
@@ -16,7 +18,7 @@ You are free to add more content and style it anyway you want. Below is some [ex
 ## Assessment Criteria
 
 <!-- Flesh this out some more -->
-1. `index.html`
+1. Create `src/index.html` containing:
     1. Meta
         1. `<title>`
         1. `<link>` including a favicon
@@ -24,11 +26,11 @@ You are free to add more content and style it anyway you want. Below is some [ex
     1. `<section>` containing a brief description of yourself, with the class name `about-me`
     1. `<img>` containing an image of yourself or your avatar, with the class name `profile-img`
     1. `<ul>` containing all of your current and upcoming projects, with the class name `projects`
-    2. `<footer>` containing a `<ul>` with the class name `social-media`, listing all your public social media accounts (including GitHub). If you don't want to share your own social media accounts feel free to use the Black Codher accounts.
-2. External stylesheet
-    1. Must be in a folder called `styles`
-    2. Import fonts
-3. Hosted on netlify
+    1. `<footer>` containing a `<ul>` with the class name `social-media`, listing all your public social media accounts (including GitHub). If you don't want to share your own social media accounts feel free to use the Black Codher accounts.
+2. Create external stylesheet at `src/styles/main.css`
+    1. Must be linked from `index.html`
+    2. Import at least one font
+3. Hosted on Netlify and status badge added to this file (`README.md`)
 
 ## How to submit
 
