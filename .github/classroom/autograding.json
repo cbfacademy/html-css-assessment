@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "Test acceptance criteria",
-      "setup": "",
+      "setup": "yarn install",
       "run": "yarn test",
       "input": "",
       "output": "",
