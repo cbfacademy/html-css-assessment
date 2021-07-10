@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "Test acceptance criteria",
-      "setup": "yarn install",
+      "setup": "yarn install --frozen-lockfile",
       "run": "yarn test",
       "input": "",
       "output": "",

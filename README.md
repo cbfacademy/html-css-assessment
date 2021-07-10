@@ -32,7 +32,7 @@ You are free to add more content and style it anyway you want. Below is some [ex
 
 ## How to submit
 
-You must push all the code to your portfolio repo.
+You must push all the code to the `src` folder in your portfolio repo.
 
 ## Projects
 
