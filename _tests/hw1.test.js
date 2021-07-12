@@ -1,11 +1,11 @@
 const { parseHTML, parseCSS, readFile } = require('./setup.js');
-const doc = parseHTML(readFile('../src/index.html'));
-const css = parseCSS(readFile('../src/styles/main.css'));
+const doc = parseHTML(readFile('../index.html'));
+const css = parseCSS(readFile('../styles/main.css'));
 const readMe = readFile('../README.md');
 const badgeRegex = /\[\!\[Netlify Status]\(https:\/\/api\.netlify\.com\/api\/v1\/badges\/[-a-f0-9]+\/deploy-status\)]\([^)]+\)/g;
 
 // HTML tests
-describe('/index.html', () => {
+describe('index.html', () => {
   test('file found', () => {
     expect(doc).toBeTruthy();
   });
