@@ -1,4 +1,4 @@
-const { parseHTML, parseCSS, readFile } = require('./setup.js');
+const { parseHTML, parseCSS, readFile } = require('../setup.js');
 const doc = parseHTML(readFile('../index.html'));
 const css = parseCSS(readFile('../styles/main.css'));
 const readMe = readFile('../README.md');

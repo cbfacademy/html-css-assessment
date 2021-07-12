@@ -2,8 +2,8 @@
   "tests": [
     {
       "name": "Test acceptance criteria",
-      "setup": "yarn install --frozen-lockfile",
-      "run": "yarn test",
+      "setup": "cd .autograding && npm ci",
+      "run": "npm test",
       "input": "",
       "output": "",
       "comparison": "included",
