@@ -22,7 +22,7 @@ function parseJS(js) {
 
 function parseHTML(html) {
     try {
-        return htmlParser.parse(html);
+        return null === html ? null : htmlParser.parse(html);
       } catch (err) {
         return null;
       }
