@@ -19,5 +19,10 @@
     "reporters": [
         ["jest-compact-reporter", { "diffs": false, "colours": true, "showPassingTests": true }]
       ]
+  },
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", {}]
+    ]
   }
 }
