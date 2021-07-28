@@ -11,9 +11,7 @@ describe('index.html', () => {
   });
 
   test('contains <!DOCTYPE html> declaration', () => {
-    let match = html.childNodes[0].rawText.match(/^<!DOCTYPE html>/);
-
-    expect(match).toBeTruthy();
+    expect(html.childNodes[0].rawText.match(/^<!DOCTYPE html>/)).toBeTruthy();
   });
 
   test('<html /> element contains "lang" attribute', () => {
