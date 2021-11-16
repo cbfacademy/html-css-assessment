@@ -71,7 +71,7 @@ describe('styles/main.css', () => {
   test('imports at least one font', () => {
       expect(
         css.stylesheet.rules.filter(
-          rule => rule.type == 'font-face' &&
+          rule => rule.type == 'import' &&
           typeof rule.declarations.find(declaration => declaration.property === 'font-family') !== 'undefined' &&
           typeof rule.declarations.find(declaration => declaration.property === 'src' && declaration.value.indexOf('url') >= 0) !== 'undefined'
         ).length
