@@ -71,9 +71,10 @@ describe('styles/main.css', () => {
   test('imports at least one font', () => {
       expect(
         css.stylesheet.rules.filter(
-          rule => rule.type == 'import' &&
+          rule => (rule.type === 'font-face' &&
           typeof rule.declarations.find(declaration => declaration.property === 'font-family') !== 'undefined' &&
-          typeof rule.declarations.find(declaration => declaration.property === 'src' && declaration.value.indexOf('url') >= 0) !== 'undefined'
+            typeof rule.declarations.find(declaration => declaration.property === 'src' && declaration.value.indexOf('url') >= 0) !== 'undefined') ||
+          (rule.type === 'import' && rule.import.indexOf('fonts') >= 0)
         ).length
       ).toBeGreaterThan(0);
   });
