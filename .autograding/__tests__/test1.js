@@ -36,7 +36,7 @@ describe('index.html', () => {
   });
 
   test('contains exactly one <link /> element pointing to a favicon', () => {
-    expect(html.querySelectorAll('head link[rel=icon]').length).toBe(1);
+    expect(html.querySelectorAll('head link[rel*=icon]').length).toBe(1);
   });
 
   test('contains exactly one <h1 /> element', () => {
