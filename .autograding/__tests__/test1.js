@@ -48,7 +48,7 @@ describe('index.html', () => {
   });
 
   test('contains exactly one <img /> element with the class name "profile-img"', () => {
-    expect(html.querySelectorAll('body section.about-me').length).toBe(1);
+    expect(html.querySelectorAll('body img.profile-img').length).toBe(1);
   });
 
   test('contains exactly one <ul /> element with the class name "projects" and multiple projects listed', () => {
